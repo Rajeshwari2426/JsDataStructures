@@ -1,14 +1,19 @@
-let prompt=require('prompt-sync')();
-let primeFactorArray=new Array();
-num=parseInt(prompt(console.log("Enter number")));
-for(i=2;i<=num/i;i++)
-{
-while(num%i==0)
-{
-    console.log("i= "+i+" factor= "+num);
-    num=num/i;
-    primeFactorArray.push(i);
-}
-}
-
-console.log("prime factors are "+primeFactorArray)
+//prime factorization using arrays
+let readline = require("readline-sync");
+let n = readline.question("Enter the number: ");
+function primeFactors(n){
+    var factors = [], 
+        divisor = 2;
+  
+    while(n>2){
+      if(n % divisor == 0){
+         factors.push(divisor); 
+         n= n/ divisor;
+      }
+      else{
+        divisor++;
+      }     
+    }
+    return factors;
+  }
+  console.log(primeFactors(n));
